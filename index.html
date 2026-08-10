@@ -8,7 +8,8 @@
   vraiment dans le binaire. Vérifié à l'écriture —
     · restauration des achats      → StoreView.swift:61, AppStore.sync()
     · un seul changement de pseudo → HomeView.swift:211, renamesLeft
-    · 100 niveaux de 60 secondes   → Levels.swift:39 et :48
+    · 100 niveaux, durée dans Levels.levelDuration — jamais citée en clair ici,
+      un chiffre réglable n'a rien à faire dans une page publiée
     · session audio .playback      → MusicPlayer.swift:29 (ignore l'interrupteur
                                      de sonnerie, d'où la question sur le son)
     · repli hors ligne             → AppModel.swift, cas .unreachable
@@ -174,7 +175,7 @@
 
 <h3>Combien y a-t-il de niveaux ?</h3>
 <p>
-  Cent, de <strong>60 secondes</strong> chacun, hors classement. La progression est
+  Cent, hors classement, chacun limité par un minuteur. La progression est
   conservée et vous pouvez rejouer n'importe quel niveau déjà atteint. La vitesse et
   l'intensité des perturbations montent d'un niveau au suivant.
 </p>
@@ -292,7 +293,7 @@
 
 <h3>How many levels are there?</h3>
 <p>
-  A hundred, <strong>60 seconds</strong> each, unranked. Progress is kept and you can
+  A hundred, unranked, each capped by a timer. Progress is kept and you can
   replay any level you have reached. Speed and disruption intensity rise from one
   level to the next.
 </p>
