@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--
+  Page d'assistance de Be the One, bilingue français / anglais. C'est l'« URL de
+  l'assistance » exigée par App Store Connect : le champ est obligatoire, et une page
+  sans moyen concret de demander de l'aide vaut un refus de métadonnées.
+
+  Règle de tenue à jour : chaque réponse ci-dessous décrit une fonction qui existe
+  vraiment dans le binaire. Vérifié à l'écriture —
+    · restauration des achats      → StoreView.swift:61, AppStore.sync()
+    · un seul changement de pseudo → HomeView.swift:211, renamesLeft
+    · 100 niveaux de 60 secondes   → Levels.swift:39 et :48
+    · session audio .playback      → MusicPlayer.swift:29 (ignore l'interrupteur
+                                     de sonnerie, d'où la question sur le son)
+    · repli hors ligne             → AppModel.swift, cas .unreachable
+  Ne pas ajouter de réponse sans la vérifier de la même façon.
+-->
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Be the One — Assistance / Support</title>
+<style>
+  :root {
+    --field: #080B16;
+    --edge: #1C2440;
+    --bone: #E8EAF0;
+    --dim: #8A93B0;
+    --accent: #2BE0B0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 20px 96px;
+    background: var(--field);
+    color: var(--bone);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 {
+    font-family: "Avenir Next Condensed", "Arial Narrow", Impact, sans-serif;
+    font-size: 40px;
+    letter-spacing: 0.5px;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+  }
+  .label {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+  h2 {
+    font-family: "Avenir Next Condensed", "Arial Narrow", Impact, sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+    margin: 44px 0 10px;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h3 { font-size: 16px; margin: 26px 0 4px; }
+  p, li { color: #C8CEE0; }
+  a { color: var(--accent); }
+  hr { border: 0; border-top: 1px solid var(--edge); margin: 64px 0 0; }
+  ul { padding-left: 22px; }
+  li { margin: 5px 0; }
+  .contact {
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin: 22px 0 0;
+  }
+  .contact p { margin: 0; }
+  .contact p + p { margin-top: 8px; }
+  .nav { margin: 22px 0 0; font-size: 14px; }
+  .date { margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+
+<p class="label">Be the One</p>
+<h1>Assistance</h1>
+<p class="label date">Mise à jour : 10 août 2026</p>
+<p class="nav"><a href="#english">Read this page in English</a></p>
+
+<div class="contact">
+  <p><strong>Écrivez-moi</strong> :
+    <a href="mailto:rouassif@me.com">rouassif@me.com</a></p>
+  <p>Indiquez votre pseudo dans le jeu et votre modèle d'iPhone. Réponse sous
+    quelques jours, en français ou en anglais.</p>
+</div>
+
+<h2>Comment on joue</h2>
+<p>
+  Des cibles descendent. <strong>Frappez les disques pleins</strong> avant qu'ils
+  atteignent le bas de l'écran, <strong>laissez tomber les anneaux creux</strong>. Une
+  seule erreur met fin à la course. Toucher le vide ne coûte rien.
+</p>
+<p>
+  Votre score est le nombre de cibles touchées, rien d'autre. Les tirs au centre ne
+  rapportent aucun point : ils servent uniquement à départager deux scores égaux.
+</p>
+
+<h2>Questions fréquentes</h2>
+
+<h3>Comment changer mon pseudo ?</h3>
+<p>
+  Le bouton <em>Modifier</em> apparaît à côté du pseudo sur l'écran d'accueil. Le
+  changement n'est possible <strong>qu'une seule fois</strong> après la saisie
+  initiale ; ensuite le pseudo est verrouillé. C'est ce qui empêche de brouiller le
+  classement en changeant de nom après chaque partie.
+</p>
+
+<h3>Mon pseudo est refusé</h3>
+<p>
+  Trois causes possibles. Il fait moins de 3 ou plus de 14 caractères ; il contient
+  autre chose que des lettres, des chiffres, <code>-</code> ou <code>_</code> ; ou il
+  est déjà pris. Un pseudo appartient au premier appareil qui le pose — c'est
+  définitif, et c'est voulu.
+</p>
+
+<h3>Supprimer mon pseudo et mes scores</h3>
+<p>
+  Écrivez-moi à <a href="mailto:rouassif@me.com">rouassif@me.com</a> en
+  indiquant votre pseudo. La suppression est définitive et retire vos scores du
+  classement. Détail du traitement dans la
+  <a href="https://kenshin743.github.io/bethenone-privacy/">politique de
+  confidentialité</a>.
+</p>
+
+<h3>J'ai changé d'iPhone, ou réinstallé le jeu</h3>
+<p>
+  L'identifiant qui rattache votre pseudo à votre appareil est conservé dans le
+  Trousseau iOS : il survit à une réinstallation, et suit une restauration de
+  sauvegarde. Si votre pseudo n'est plus reconnu sur un nouvel appareil, écrivez-moi.
+</p>
+
+<h3>Restaurer mes achats</h3>
+<p>
+  Bouton <em>Restaurer mes achats</em> dans la boutique, accessible depuis
+  <em>Sans publicité</em> en bas de l'accueil. Les achats sont liés à votre identifiant
+  Apple, pas à l'appareil : vérifiez que vous êtes connecté avec le même compte que
+  lors de l'achat.
+</p>
+
+<h3>Le classement n'affiche pas mon dernier score</h3>
+<p>
+  Le classement retient votre <strong>meilleur</strong> score, pas le dernier : une
+  mauvaise partie après une bonne ne vous fait pas redescendre. Seul le
+  <strong>mode compétitif</strong> est classé ; le mode Niveaux ne l'est pas.
+</p>
+
+<h3>Le jeu fonctionne mais le classement semble figé</h3>
+<p>
+  Sans réseau, le jeu bascule sur un classement local pour rester jouable et
+  n'interrompt jamais une partie. Vos scores rejoignent le classement mondial à la
+  prochaine partie effectuée en ligne.
+</p>
+
+<h3>La musique joue alors que mon iPhone est en silencieux</h3>
+<p>
+  C'est normal : la musique est traitée comme de la lecture audio, donc
+  l'interrupteur de sonnerie ne la coupe pas. Utilisez <em>Couper le son</em> sous le
+  choix des musiques, sur l'écran d'accueil.
+</p>
+
+<h3>Combien y a-t-il de niveaux ?</h3>
+<p>
+  Cent, de <strong>60 secondes</strong> chacun, hors classement. La progression est
+  conservée et vous pouvez rejouer n'importe quel niveau déjà atteint. La vitesse et
+  l'intensité des perturbations montent d'un niveau au suivant.
+</p>
+
+<h3>Pourquoi tout le monde joue la même séquence en compétitif ?</h3>
+<p>
+  Parce qu'un classement n'a de sens que si les parcours sont comparables. Le mode
+  compétitif utilise toujours la même séquence, la même pour tous et pour toujours.
+  Le mode Niveaux, lui, tire une séquence au hasard.
+</p>
+
+<h3>Le jeu ne tourne pas de façon fluide</h3>
+<p>
+  Fermez les autres apps et redémarrez le jeu. Si le problème persiste, écrivez-moi en
+  précisant votre modèle d'iPhone et votre version d'iOS.
+</p>
+
+<h2>Signaler un bug</h2>
+<p>
+  Décrivez ce que vous faisiez, ce que vous attendiez et ce qui s'est produit. Une
+  capture d'écran aide beaucoup. Précisez le mode, le skin et le niveau le cas
+  échéant.
+</p>
+
+<hr>
+
+<p class="label" id="english">Be the One</p>
+<h1>Support</h1>
+<p class="label date">Updated: 10 August 2026</p>
+
+<div class="contact">
+  <p><strong>Write to me</strong>:
+    <a href="mailto:rouassif@me.com">rouassif@me.com</a></p>
+  <p>Include your in-game nickname and your iPhone model. Reply within a few days, in
+    English or French.</p>
+</div>
+
+<h2>How to play</h2>
+<p>
+  Targets fall. <strong>Hit the solid discs</strong> before they reach the bottom of
+  the screen, <strong>let the hollow rings fall</strong>. A single mistake ends the
+  run. Hitting empty space costs nothing.
+</p>
+<p>
+  Your score is the number of targets hit, nothing else. Centre hits score no points:
+  they only break ties between equal scores.
+</p>
+
+<h2>Frequently asked</h2>
+
+<h3>How do I change my nickname?</h3>
+<p>
+  The <em>Change</em> button sits next to the nickname on the home screen. It works
+  <strong>once only</strong> after the initial entry; the nickname is locked
+  afterwards. That is what stops people from blurring the leaderboard by renaming
+  after every run.
+</p>
+
+<h3>My nickname is refused</h3>
+<p>
+  Three possible causes. It is under 3 or over 14 characters; it contains something
+  other than letters, digits, <code>-</code> or <code>_</code>; or it is already
+  taken. A nickname belongs to the first device that claims it — permanently, and by
+  design.
+</p>
+
+<h3>Delete my nickname and scores</h3>
+<p>
+  Write to <a href="mailto:rouassif@me.com">rouassif@me.com</a> stating your
+  nickname. Deletion is permanent and removes your scores from the leaderboard. Full
+  detail in the
+  <a href="https://kenshin743.github.io/bethenone-privacy/">privacy policy</a>.
+</p>
+
+<h3>I changed iPhone, or reinstalled the game</h3>
+<p>
+  The identifier binding your nickname to your device lives in the iOS Keychain: it
+  survives a reinstall and follows a backup restore. If your nickname is no longer
+  recognised on a new device, write to me.
+</p>
+
+<h3>Restore my purchases</h3>
+<p>
+  <em>Restore my purchases</em> in the store, reachable from <em>Remove ads</em> at the
+  bottom of the home screen. Purchases are tied to your Apple Account, not the device:
+  check you are signed in with the same account you bought with.
+</p>
+
+<h3>The leaderboard does not show my latest score</h3>
+<p>
+  The leaderboard keeps your <strong>best</strong> score, not your last: a bad run
+  after a good one never pushes you down. Only <strong>Ranked</strong> mode counts;
+  Levels mode does not.
+</p>
+
+<h3>The game works but the ranking looks frozen</h3>
+<p>
+  With no network the game falls back to a local leaderboard so it stays playable, and
+  never interrupts a run. Your scores join the world ranking on your next run played
+  online.
+</p>
+
+<h3>Music plays while my iPhone is on silent</h3>
+<p>
+  That is expected: music is treated as audio playback, so the ring switch does not
+  mute it. Use <em>Mute the sound</em> under the music picker on the home screen.
+</p>
+
+<h3>How many levels are there?</h3>
+<p>
+  A hundred, <strong>60 seconds</strong> each, unranked. Progress is kept and you can
+  replay any level you have reached. Speed and disruption intensity rise from one
+  level to the next.
+</p>
+
+<h3>Why does everyone play the same sequence in Ranked?</h3>
+<p>
+  Because a ranking only means something if the courses are comparable. Ranked mode
+  always uses the same sequence, identical for everyone, forever. Levels mode draws a
+  random one.
+</p>
+
+<h3>The game does not run smoothly</h3>
+<p>
+  Close other apps and restart the game. If it persists, write to me with your iPhone
+  model and iOS version.
+</p>
+
+<h2>Reporting a bug</h2>
+<p>
+  Describe what you were doing, what you expected and what happened. A screenshot
+  helps a lot. Mention the mode, the skin and the level where relevant.
+</p>
+
+</main>
+</body>
+</html>
