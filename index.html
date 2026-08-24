@@ -8,8 +8,10 @@
   vraiment dans le binaire. Vérifié à l'écriture —
     · restauration des achats      → StoreView.swift:61, AppStore.sync()
     · un seul changement de pseudo → HomeView.swift:211, renamesLeft
-    · 100 niveaux, durée dans Levels.levelDuration — jamais citée en clair ici,
+    · 50 niveaux, durée dans Levels.levelDuration — jamais citée en clair ici,
       un chiffre réglable n'a rien à faire dans une page publiée
+    · les 50 niveaux bouclés débloquent skins et musiques
+                                     → PlayerStore.completedAllLevels
     · session audio .playback      → MusicPlayer.swift:29 (ignore l'interrupteur
                                      de sonnerie, d'où la question sur le son)
     · repli hors ligne             → AppModel.swift, cas .unreachable
@@ -175,9 +177,16 @@
 
 <h3>Combien y a-t-il de niveaux ?</h3>
 <p>
-  Cent, hors classement, chacun limité par un minuteur. La progression est
+  Cinquante, hors classement, chacun limité par un minuteur. La progression est
   conservée et vous pouvez rejouer n'importe quel niveau déjà atteint. La vitesse et
   l'intensité des perturbations montent d'un niveau au suivant.
+</p>
+
+<h3>Faut-il payer pour avoir toutes les apparences et toutes les musiques ?</h3>
+<p>
+  Non. Terminer les cinquante niveaux débloque les dix apparences et les dix
+  musiques, sans rien payer. Les achats intégrés servent à les obtenir tout de
+  suite, sans attendre d'avoir fini les niveaux.
 </p>
 
 <h3>Pourquoi tout le monde joue la même séquence en compétitif ?</h3>
@@ -293,9 +302,16 @@
 
 <h3>How many levels are there?</h3>
 <p>
-  A hundred, unranked, each capped by a timer. Progress is kept and you can
+  Fifty, unranked, each capped by a timer. Progress is kept and you can
   replay any level you have reached. Speed and disruption intensity rise from one
   level to the next.
+</p>
+
+<h3>Do I have to pay to get every skin and every track?</h3>
+<p>
+  No. Clearing all fifty levels unlocks the ten skins and the ten tracks at no
+  cost. The in-app purchases are there to get them straight away, without waiting
+  until the levels are done.
 </p>
 
 <h3>Why does everyone play the same sequence in Ranked?</h3>
